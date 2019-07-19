@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const mssql = require("mssql");
+const sql = require("mssql");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // DB2 Config searches keys.js for sql auth string and path
 const db2 = require("./config/keys").mssqlCon;
-mssql
+sql
   .connect(db2, { useNewUrlParser: true })
   .then(() => console.log("mssql successfully connected"))
   .catch(err => console.log(err));
