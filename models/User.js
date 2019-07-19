@@ -1,7 +1,7 @@
-//const mongoose = require("mongoose");
-//const Schema = mongoose.Schema;
-const mssql = require("mssql");
-const Schema = mssql.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+//const mssql = require("mssql");
+//const Schema = mssql.Schema;
 // Create Schema
 const UserSchema = new Schema({
   name: {
@@ -21,5 +21,6 @@ const UserSchema = new Schema({
     default: Date.now
   }
 });
-//module.exports = User = mongoose.model("users", UserSchema);
-module.exports = User = mssql.model("users", UserSchema);
+
+module.exports = User = mongoose.model("users", UserSchema);
+//module.exports = User = mssql.model("users", UserSchema);
