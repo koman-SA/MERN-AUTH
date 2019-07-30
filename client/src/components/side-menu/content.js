@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { hashHistory, StaticRouter as Router } from "react-dom";
+import { hashHistory, render, BrowserRouter as Router } from "react-dom";
 import { component } from "react-dom";
 import { Route } from "react-router";
 import MetisMenu from "react-metismenu";
@@ -51,7 +51,6 @@ const menu = [
     to: "https://www.google.com"
   }
 ];
-
 const App = props => (
   <div>
     <MetisMenu content={menu} LinkComponent={RouterLink} />
@@ -60,12 +59,12 @@ const App = props => (
   </div>
 );
 
-class sidemenu extends React.Component {
+export default class Sidemenu extends React.Component {
   render() {
     return (
       (
         <Router history={hashHistory}>
-          <Route path="/" component={App}>
+          <Route path="../../App" component={App}>
             <Route path="menu-1" component={Menu1} />
             <Route path="menu-2" component={Menu2} />
             <Route path="sub-menu" component={SubMenu} />
@@ -76,4 +75,3 @@ class sidemenu extends React.Component {
     );
   }
 }
-module.export = sidemenu;

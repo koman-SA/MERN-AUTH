@@ -2,58 +2,25 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import { sidemenu } from "../../components/side-menu/content";
-
+import Sidemenu from "../../components/side-menu/content";
+import RouterLink from "react-metismenu-router-link";
 import ReactDOM from "react-dom";
 import MetisMenu from "react-metismenu";
+import App from "../../App";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
   render() {
     const { user } = this.props.auth;
+
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div>
-          {" "}
-          - main wrapper ====================================== Top container
-          <ul>
-            {" "}
-            - container
-            <li>
-              {" "}
-              - item
-              <a>
-                {" "}
-                - link
-                <i /> - icon " " - label
-                <i /> - state icon (caret icon)
-              </a>
-              ---------------------------------- First depth sub container
-              <ul>
-                {" "}
-                - container
-                <li>
-                  {" "}
-                  - item
-                  <a>
-                    {" "}
-                    - link
-                    <i /> - icon " " - label
-                  </a>
-                </li>
-                ...
-              </ul>
-              ----------------------------------
-            </li>
-            ...
-          </ul>
-          ======================================
-        </div>
-
         <div className="row">
+          <div className="root"></div>
           <div className="col s12 center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
