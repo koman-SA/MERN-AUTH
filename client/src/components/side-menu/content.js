@@ -1,10 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { hashHistory, render, BrowserRouter as Router } from "react-dom";
-import { component } from "react-dom";
-import { Route } from "react-router";
-import MetisMenu from "react-metismenu";
-import RouterLink from "react-metismenu-router-link";
+import React, { Component } from "react";
+import {  BrowserRouter as Router, Route , Link } from "react-router-dom";
+// import React, { Component } from "react";
+// import ReactDOM, {Link} from "react-dom";
+import { hashHistory } from "react-dom";
+// import MetisMenu from "react-metismenu";
+// import RouterLink from "react-metismenu-router-link";
 
 const Menu1 = () => (
   <div>
@@ -51,27 +51,60 @@ const menu = [
     to: "https://www.google.com"
   }
 ];
-const App = props => (
-  <div>
-    <MetisMenu content={menu} LinkComponent={RouterLink} />
-    <h2>Page Content</h2>
-    {props.children || "Greeter Page"}
-  </div>
-);
+// const App = props => (
+//   <div>
+//     <MetisMenu content={menu} LinkComponent={RouterLink} />
+//     <h2>Page Content</h2>
+//     {props.children || "Greeter Page"}
+//   </div>
+// );
 
-export default class Sidemenu extends React.Component {
+// class Sidemenu extends Component {
+//   render() {
+//     // return (
+//     //     <div>
+//     //     <Router history={hashHistory}>
+//     //       <Route path="../../App" component={App}>
+//     //         <Route path="menu-1" component={Menu1} />
+//     //         <Route path="menu-2" component={Menu2} />
+//     //         <Route path="sub-menu" component={SubMenu} />
+//     //       </Route>
+//     //     </Router>
+//     //     </div>
+//     // );
+//     return (
+//       <div className="navbar-fixed">
+//         <nav className="z-depth-0">
+//           <div className="nav-wrapper white">
+//             <Link
+//               to="/"
+//               style={{
+//                 fontFamily: "monospace"
+//               }}
+//               className="col s5 brand-logo center black-text"
+//             >
+//               <i className="material-icons">code</i>
+//               Converged Portal
+//             </Link>
+//           </div>
+//         </nav>
+//       </div>
+//     );
+//   }
+// }
+// export default Sidemenu;
+class Navbar extends Component {
   render() {
     return (
-      (
+      <div>
+        testing
         <Router history={hashHistory}>
-          <Route path="../../App" component={App}>
-            <Route path="menu-1" component={Menu1} />
-            <Route path="menu-2" component={Menu2} />
-            <Route path="sub-menu" component={SubMenu} />
-          </Route>
+          <Route path="menu-1" component={Menu1} />
+          <Route path="menu-2" component={Menu2} />
+          <Route path="sub-menu" component={SubMenu} />
         </Router>
-      ),
-      document.getElementById("root")
+        </div>
     );
   }
 }
+export default Navbar;
