@@ -93,7 +93,7 @@ const menu = [
 //   }
 // }
 // export default Sidemenu;
-class Navbar extends Component {
+class Sidemenu extends Component {
   render() {
     return (
       <div>
@@ -107,4 +107,4 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+export default Sidemenu;
