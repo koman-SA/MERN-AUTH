@@ -19,10 +19,11 @@ class Dashboard extends Component {
 
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="root"></div>
+        <aside>
           <Sidemenu />
-          <div className="col s12 center-align">
+        </aside>
+        <div className="row">
+          <div className="col">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">

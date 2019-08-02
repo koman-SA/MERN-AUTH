@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import {  BrowserRouter as Router, Route , Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import React, { Component } from "react";
 // import ReactDOM, {Link} from "react-dom";
 import { hashHistory } from "react-dom";
-// import MetisMenu from "react-metismenu";
-// import RouterLink from "react-metismenu-router-link";
+import MetisMenu from "react-metismenu";
+import RouterLink from "react-metismenu-router-link";
+import "../../App.css";
 
 const Menu1 = () => (
   <div>
@@ -24,21 +25,170 @@ const SubMenu = () => (
 
 const menu = [
   {
-    icon: "dashboard",
-    label: "Menu 1",
-    to: "menu-1"
+    label: "Dashboard",
+    to: "Dashboard"
   },
   {
-    icon: "bell",
-    label: "Menu 2",
-    to: "menu-2"
+    label: "Environment",
+    to: "menu-2",
+    content: [
+      {
+        label: "Physical Servers",
+        to: "sub-menu"
+      },
+      {
+        label: "Virtual Machines",
+        to: "sub-menu"
+      },
+      {
+        label: "Desktops/Laptops",
+        to: "sub-menu"
+      },
+      {
+        label: "Storage Devices",
+        to: "sub-menu"
+      },
+      {
+        label: "Databases",
+        to: "sub-menu"
+      },
+      {
+        label: "Applications",
+        to: "sub-menu"
+      }
+    ]
   },
   {
-    icon: "bolt",
-    label: "Menu 3",
+    label: "Monitor",
     content: [
       {
         icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      }
+    ]
+  },
+  {
+    label: "Administer",
+    content: [
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      }
+    ]
+  },
+  {
+    label: "Secure",
+    content: [
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      }
+    ]
+  },
+  {
+    label: "Backup",
+    content: [
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      }
+    ]
+  },
+  {
+    label: "Archive",
+    content: [
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      }
+    ]
+  },
+  {
+    label: "Configure",
+    content: [
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      }
+    ]
+  },
+  {
+    label: "Resources",
+    content: [
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      }
+    ]
+  },
+  {
+    label: "Locations",
+    content: [
+      {
+        icon: "bolt",
+        label: "Jobs",
+        label: "Sub Menu",
+        to: "sub-menu"
+      },
+      {
+        icon: "bolt",
+        label: "Jobs",
         label: "Sub Menu",
         to: "sub-menu"
       }
@@ -51,59 +201,18 @@ const menu = [
     to: "https://www.google.com"
   }
 ];
-// const App = props => (
-//   <div>
-//     <MetisMenu content={menu} LinkComponent={RouterLink} />
-//     <h2>Page Content</h2>
-//     {props.children || "Greeter Page"}
-//   </div>
-// );
 
-// class Sidemenu extends Component {
-//   render() {
-//     // return (
-//     //     <div>
-//     //     <Router history={hashHistory}>
-//     //       <Route path="../../App" component={App}>
-//     //         <Route path="menu-1" component={Menu1} />
-//     //         <Route path="menu-2" component={Menu2} />
-//     //         <Route path="sub-menu" component={SubMenu} />
-//     //       </Route>
-//     //     </Router>
-//     //     </div>
-//     // );
-//     return (
-//       <div className="navbar-fixed">
-//         <nav className="z-depth-0">
-//           <div className="nav-wrapper white">
-//             <Link
-//               to="/"
-//               style={{
-//                 fontFamily: "monospace"
-//               }}
-//               className="col s5 brand-logo center black-text"
-//             >
-//               <i className="material-icons">code</i>
-//               Converged Portal
-//             </Link>
-//           </div>
-//         </nav>
-//       </div>
-//     );
-//   }
-// }
-// export default Sidemenu;
 class Sidemenu extends Component {
   render() {
     return (
       <div>
-        testing
         <Router history={hashHistory}>
+          <MetisMenu content={menu} activeLinkFromLocation />
           <Route path="menu-1" component={Menu1} />
           <Route path="menu-2" component={Menu2} />
           <Route path="sub-menu" component={SubMenu} />
         </Router>
-        </div>
+      </div>
     );
   }
 }
